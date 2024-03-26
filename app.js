@@ -5,6 +5,7 @@ const app = express();
 const studentRoute = require('./api/routes/student');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require(`cors`);
 
 
 
@@ -14,6 +15,7 @@ mongoose.connect("mongodb://localhost:27017/practice")
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use('/student',studentRoute);
 
