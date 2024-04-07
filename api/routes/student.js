@@ -29,6 +29,7 @@ router.post('/',(req,res,next) => {
         city : req.body.city,
         job : req.body.job,
         phone : req.body.phone,
+        date : req.body.date
     });
     student.save()
     .then(result => {
@@ -78,13 +79,14 @@ router.get('/:id',(req,res,next) => {
 })
 // get by id and update
 router.put('/:id',(req,res,next) => {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     product.findByIdAndUpdate({_id:req.params.id},{
         $set : {
             name : req.body.name,
             city : req.body.city,
             job : req.body.job,
-            phone : req.body.phone
+            phone : req.body.phone,
+            date : req.body.date
         }
     })
     .then(result => {
